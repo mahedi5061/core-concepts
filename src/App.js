@@ -2,24 +2,36 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (
+  const players=['Sakib al hasan','Mashrafe Mortaza','Tamim Iqbal','Musfiqur Rahim'];
+  return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <header className="App-header">
+        <Person name={players[0]} postion='All Rounder'></Person>
+        <Person name={players[1]} postion='Bowler'></Person>
+        <Person name={players[2]} postion='Batsmen'></Person>
+        <Person name={players[3]} postion='WK & Batsmen'></Person>
+      </header> 
     </div>
   );
 }
+ function Person(temp){
+   const style={
+     color:'orange',
+    border:'2px solid red',
+    padding:'5px',
+    margin:'6px',
+    borderRadius:'5px',
+   }
+  return (
+     
+     <div style={style}>
+        <h2>Name: {temp.name} </h2>
+        <h3>Position: {temp.postion} </h3>
+     </div>
+    
+
+        )
+ }
+ 
 
 export default App;
