@@ -1,6 +1,5 @@
  import React,{useEffect, useState} from 'react';  //import this line to use the useState.
-import logo from './logo.svg';
-import './App.css';
+ import './App.css';
 
 function App() {
           
@@ -29,12 +28,12 @@ function App() {
        <Counter></Counter>  {/*function call by html tag system.*/}
         <Users></Users>
             {
-               products.map(product=><Products product={product}></Products>) /* function call by html system and using dynamic call inside from this html tag. */
+               products.map(product=><Products name={product.name} price={product.price}></Products>) /* function call by html system and using dynamic call inside from this html tag. */
               
             }
           
             {
-              players.map(player=><Person player={player}></Person>)
+              players.map(player=><Person player={player.name} position={player.position}></Person>)
             }
          
     
@@ -90,6 +89,7 @@ function Products(props){
     height:'300px',
     padding:'5px',
     color:'orange',
+    textAlign:'center',
     margin:'6px',
     fontSize:'25px',
     borderRadius:'5px'
@@ -97,8 +97,8 @@ function Products(props){
   }
   return (
     <div style={productStyle}>
-      <h2>{props.product.name}</h2>
-      <h3>{props.product.price} </h3>
+      <h2>{props.name}</h2>
+      <h3>{props.price} </h3>
       <button style={{padding:'5px',color:'#0a0a7b',fontWeight:'bold'}}>Buy Now</button>
     </div>
   )
@@ -115,8 +115,8 @@ function Products(props){
   return (
      
      <div style={style}>
-        <h2>Name: {props.player.name} </h2>
-        <h3>Position: {props.player.position}</h3>
+        <h2>Name: {props.name} </h2>
+        <h3>Position: {props.position}</h3>
      </div>
     
 
