@@ -33,7 +33,7 @@ function App() {
             }
           
             {
-              players.map(player=><Person player={player.name} position={player.position}></Person>)
+              players.map(player=><Person name={player.name} position={player.position}></Person>)
             }
          
     
@@ -63,7 +63,11 @@ function Users(){
     useEffect(() =>{
      fetch('https://jsonplaceholder.typicode.com/users')
      .then(res=>res.json())
-     .then(data=>setUsers(data))
+     .then(data=>{ 
+       let usr=data.filter(nm=>nm.id>5);
+       setUsers(usr)
+    }
+       )
     }
  )
 
